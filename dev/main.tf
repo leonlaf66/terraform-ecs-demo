@@ -1,5 +1,5 @@
 module "nodejs_ecs_service" {
-  source = "git::https://github.com/leonlaf66/terraform-ecs-module.git?ref=main"
+  source = "git::https://github.com/leonlaf66/terraform-ecs-module?ref=main"
 
   app_name       = "app-nodejs"
   aws_region     = var.aws_region

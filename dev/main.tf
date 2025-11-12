@@ -4,7 +4,7 @@ module "nodejs_ecs_service" {
   app_name       = "app-nodejs"
   aws_region     = var.aws_region
   
-  shared_ecr_repository_url = var.shared_ecr_repository_url
+  shared_ecr_repository_url = "286005841113.dkr.ecr.us-east-1.amazonaws.com/leon-demo-odoo-dev"
   ecs_execution_role_arn    = aws_iam_role.ecs_execution_role.arn
   ecs_task_role_arn         = aws_iam_role.ecs_task_role.arn
   

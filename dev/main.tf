@@ -25,7 +25,7 @@ module "nodejs_ecs_service" {
       
       health_check = {
         command     = ["CMD-SHELL", "curl -f http://localhost:3000/health || exit 1"]
-        interval    = 30
+        interval    = 20
         timeout     = 5
         retries     = 3
         startPeriod = 60

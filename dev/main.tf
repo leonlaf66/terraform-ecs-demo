@@ -37,7 +37,7 @@ module "nodejs_ecs_service" {
 
   ingress_rules = [
     {
-      description = "Allow HTTP access to Node.js app"
+      description = "Allow HTTP access to Node.js app!"
       from_port   = 3000
       to_port     = 3000
       ip_protocol = "tcp"

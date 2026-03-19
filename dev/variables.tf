@@ -10,14 +10,32 @@ variable "manual_image_tag" {
   default     = null
 }
 
-data "aws_vpc" "default" {
-  default = true
+data "aws_vpc" "main" {
+  filter {
+    name   = "tag:Name"
+    values = ["kraken-vpc-dev"]
+  }
 }
 
-data "aws_subnets" "default" {
+data "aws_subnets" "private" {
   filter {
     name   = "vpc-id"
-    values = [data.aws_vpc.default.id]
+    values = [data.aws_vpc.main.id]
+  }
+  filter {
+    name   = "tag:Type"
+    values = ["Private"]
+  }
+}
+
+data "aws_subnets" "public" {
+  filter {
+    name   = "vpc-id"
+    values = [data.aws_vpc.main.id]
+  }
+  filter {
+    name   = "tag:Type"
+    values = ["Public"]
   }
 }
 

@@ -43,7 +43,5 @@ module "nodejs_ecs_service" {
       }
     }
   }
-
-  # Add extra rules here only for things like Prometheus scraping from within the VPC.
   ingress_rules = []
 }

@@ -8,7 +8,7 @@ module "nodejs_ecs_service" {
   ecs_execution_role_arn    = aws_iam_role.ecs_execution_role.arn
   ecs_task_role_arn         = aws_iam_role.ecs_task_role.arn
 
-  vpc_id            = data.aws_vpc.default.id
+  vpc_id            = data.aws_vpc.main.id
   subnet_ids        = data.aws_subnets.private.ids
   alb_enabled       = true
   public_subnet_ids = data.aws_subnets.public.ids

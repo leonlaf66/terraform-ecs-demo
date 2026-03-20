@@ -39,6 +39,10 @@ data "aws_subnets" "public" {
   }
 }
 
+resource "terraform_data" "image_tag_check" {
+  input = data.aws_ssm_parameter.latest_tag.value
+}
+
 data "aws_ssm_parameter" "latest_tag" {  
   name = "/ecs/app/version/nodejs"
 }

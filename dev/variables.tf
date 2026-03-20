@@ -40,7 +40,7 @@ data "aws_subnets" "public" {
 }
 
 resource "terraform_data" "image_tag_check" {
-  input = data.aws_ssm_parameter.latest_tag.value
+  input = nonsensitive(local.final_tag)
 }
 
 data "aws_ssm_parameter" "latest_tag" {  

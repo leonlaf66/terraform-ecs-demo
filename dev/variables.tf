@@ -40,7 +40,10 @@ data "aws_subnets" "public" {
 }
 
 resource "terraform_data" "image_tag_check" {
-  input = data.aws_ssm_parameter.latest_tag.value
+  triggers_replace = {
+    tag       = nonsensitive(local.final_tag)
+    timestamp = timestamp()
+  }
 }
 
 data "aws_ssm_parameter" "latest_tag" {  
